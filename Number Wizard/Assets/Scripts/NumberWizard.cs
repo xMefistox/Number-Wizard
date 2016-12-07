@@ -4,7 +4,7 @@ using System.Collections;
 public class NumberWizard : MonoBehaviour {
 
 	// Use this for initialization
-	int max = 1000, min = 1, guess=500;
+	int max, min, guess;
 	void Start () {
 		StartGame ();
 
@@ -12,13 +12,18 @@ public class NumberWizard : MonoBehaviour {
 
 	void StartGame()
 	{
-		max++;
+		max = 1000;
+		min = 1;
+		guess=500;
+
+		print ("===================================================");
 		print ("Welcome to Number Wizard");
 		print ("Pick a number in your head, but don't tell me");
 
-		print("The highest number you can pick is " + max + "and the lowest is " + min);
+		print("The highest number you can pick is " + max + " and the lowest is " + min);
 		print ("Is the number lower or higher than "+guess+"?");
 		print ("UP for higher,DOWN for lower, Return for equal");
+		max++;
 	}
 
 
@@ -37,6 +42,7 @@ public class NumberWizard : MonoBehaviour {
 		}
 		else if (Input.GetKeyDown (KeyCode.Return)) {
 			print ("I Win!");
+			StartGame();
 		}
 
 	}
